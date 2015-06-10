@@ -22,4 +22,5 @@ sudo a2enmod rewrite
 
 sudo service apache2 restart
 
+cd /vagrant
 php /home/vagrant/composer.phar update

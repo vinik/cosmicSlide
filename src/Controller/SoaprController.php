@@ -7,9 +7,12 @@ use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
 
 
-class FooController extends AppController {
+class SoaprController extends AppController {
 
   public function index() {
-    echo "foo";
+    if ($this->request->is('put')) {
+      $json = $this->request->input();
+    }
   }
+
 }
