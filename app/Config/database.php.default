@@ -51,7 +51,7 @@
  * database. Uses database default not specified.
  *
  * sslmode =>
- * For Postgres specifies whether to 'disable', 'allow', 'prefer', or 'require' SSL for the 
+ * For Postgres specifies whether to 'disable', 'allow', 'prefer', or 'require' SSL for the
  * connection. The default value is 'allow'.
  *
  * unix_socket =>
@@ -89,4 +89,19 @@ class DATABASE_CONFIG {
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
+
+  var $soap = array(
+    'datasource' => 'SoapSource',
+    'wsdl' => 'http://localhost/soapservice.wsdl', // wsdl mode
+    'location' => '', // Required for non wsdl mode
+    'uri' => '', // Required for non wsdl mode
+    'proxy_host' => 'http://proxy.com', // optional
+    'proxy_port' => 3128, // optional
+    'curl_off' => true, // optional - turns curl wsdl fetch off
+    'headers' => array( // optional - used with 3rd parameter in model
+      'ns' => 'namespace',
+      'container' => 'session_key',
+    )
+    'use' => SOAP_ENCODED // optional - used only for non wsdl mode
+);
 }
