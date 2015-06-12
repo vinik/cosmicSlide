@@ -3,7 +3,7 @@ FROM ubuntu:trusty
 MAINTAINER Vinícius Kirst <vinicius@versul.com.br>
 
 RUN apt-get update
-RUN apt-get install -y --force-yes apache2 php5 curl php5-curl php5-intl php5-mcrypt
+RUN apt-get install -y --force-yes apache2 php5 curl php5-curl php5-intl php5-mcrypt wget
 
 RUN a2enmod php5
 RUN a2enmod rewrite
@@ -25,8 +25,15 @@ ADD docker/apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 # RUN chmod -R 777 /var/www/site/app/tmp/
 
 # composer
-RUN curl -sS https://getcomposer.org/installer | php
-WORKDIR /var/www/site/
-RUN /composer.phar install
+# RUN curl -sS https://getcomposer.org/installer | php
+# WORKDIR /var/www/site/
+# RUN /composer.phar install
+
+# phpunit
+
+# RUN wget https://phar.phpunit.de/phpunit.phar
+# RUN chmod +x phpunit.phar
+# RUN mv phpunit.phar /usr/local/bin/phpunit
+# RUN phpunit --version
 
 CMD /usr/sbin/apache2ctl -D FOREGROUND

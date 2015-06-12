@@ -1,4 +1,4 @@
-# apt-get update
+apt-get update
 
 docker version
 DOCKERIZED=$?
@@ -13,6 +13,7 @@ docker pull ubuntu:trusty
 cd /vagrant/
 docker build -t cosmicslideimg .
 docker run -p 80:80 -d -P --name cosmicslidecont -v /vagrant:/var/www/site cosmicslideimg
+# docker run -p 80:80 -d -P --name cosmicslidecont -v /home/vinicius/desenv/projects/cosmicSlide:/var/www/site cosmicslideimg
 
 
 # sudo apt-get install -y --force-yes apache2
