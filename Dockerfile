@@ -22,11 +22,10 @@ ADD . /var/www/site
 
 ADD docker/apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 
-RUN touch /var/www/site/logs/error.log
-RUN chmod -R 777 /var/www/site/logs/
+# RUN chmod -R 777 /var/www/site/app/tmp/
 
-RUN mkdir /var/www/site/tmp/
-RUN touch /var/www/site/tmp/foo
-RUN chmod -R 777 /var/www/site/tmp/
+# composer
+RUN curl -sS https://getcomposer.org/installer | php
+RUN composer install
 
 CMD /usr/sbin/apache2ctl -D FOREGROUND

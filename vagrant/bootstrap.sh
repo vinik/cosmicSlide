@@ -1,4 +1,4 @@
-apt-get update
+# apt-get update
 
 docker version
 DOCKERIZED=$?
